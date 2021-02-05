@@ -52,18 +52,18 @@ else:
 
     global df
     st.markdown("<h2 style='text-align: center;'>Select file:</h2>", unsafe_allow_html=True)
-    col1, col2, col3 = st.beta_columns([1,2.05,1])
-    file_uploader = col2.selectbox('', ['Travel_Data_1.csv', 'Travel_Data_2.csv'])
+    #col1, col2, col3 = st.beta_columns([1,2.05,1])
+    file_uploader = st.selectbox('', ['Travel_Data_1.csv', 'Travel_Data_2.csv'])
     if file_uploader == 'Travel_Data_1.csv':
             df = pd.read_json('TravelData_1.json')
-            col1, col2, col3 = st.beta_columns([1,2.05,1])
-            col2.success('Travel_Data_1.csv successfully uploaded!')
+            #col1, col2, col3 = st.beta_columns([1,2.05,1])
+            st.success('Travel_Data_1.csv successfully uploaded!')
     else:
             df = pd.read_json('TravelData_2.json')
-            col1, col2, col3 = st.beta_columns([1,2.05,1])
-            col2.success('Travel_Data_2.csv successfully uploaded!')
+            #col1, col2, col3 = st.beta_columns([1,2.05,1])
+            st.success('Travel_Data_2.csv successfully uploaded!')
             
-    #model
+    
     def get_pui(enter_user):
                         epsilon = 0.0018288 # a radial distance of 6 feet in kilometers
                         model = DBSCAN(eps=epsilon, min_samples=2, metric='haversine').fit(df[['latitude', 'longitude']])
@@ -90,7 +90,7 @@ else:
                         return pos_users
                         
                 
-    #print names
+    
     def print_infected(get_pui):
                         st.markdown('---')
                         a = st.text_input("Enter person of interest: ", 'Kristian Paule')
@@ -131,7 +131,7 @@ else:
     except Exception as e:
             print(e)
             
-    #add a select widget to the side bar
+   
     chart_select = st.sidebar.selectbox(
             label="Select the chart type",
             options=['Scatterplots', 'Boxplot']
