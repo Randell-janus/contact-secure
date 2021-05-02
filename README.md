@@ -1,6 +1,6 @@
-# Heart Failure Prediction
+# Contact Tracing through Unsupervised Learning
 ####  A Streamlit Contact tracing web application using Unsupervised Learning method  
-https://share.streamlit.io/randell-janus/heart-failure-prediction/main/app.py  
+https://share.streamlit.io/randell-janus/contact-secure/main/dbscantester.py
   
   
 ![](cslogocropped.png)
